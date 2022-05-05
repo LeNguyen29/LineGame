@@ -98,4 +98,9 @@ public class BallSpawner : MonoBehaviour
 
         return spawnPos;
     }
+
+    public List<GameObject> getBallList()
+    {
+        return objectList;
+    }
 }

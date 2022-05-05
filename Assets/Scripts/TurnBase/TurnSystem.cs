@@ -29,7 +29,7 @@ public class TurnSystem : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Current turn: " + gameTurn);
+        //Debug.Log("Current turn: " + gameTurn);
         switch (gameTurn)
         {
             case GameTurnState.PLAYER_TURN:
@@ -53,7 +53,7 @@ public class TurnSystem : MonoBehaviour
 
     private void playerTurn()
     {
-        Debug.Log("PLAYER TURN...");
+        //Debug.Log("PLAYER TURN...");
 
         if (playerTurnFinish)
         {

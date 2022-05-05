@@ -256,9 +256,10 @@ GameObject:
   - component: {fileID: 2561708125934701269}
   - component: {fileID: 4008287445359612357}
   - component: {fileID: 1935780047}
+  - component: {fileID: 4464559510200054863}
   m_Layer: 6
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797713000061806604}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08c532e6c7206854cba2c1b0f4cd1cdf, type: 3}
   m_Name: 
@@ -421,3 +422,17 @@ MonoBehaviour:
   leftShootPos: {fileID: 263399311}
   upShootPos: {fileID: 633904641}
   downShootPos: {fileID: 911999035}
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &4464559510200054863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797713000061806604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe4e1e5e80de23458b573b21201dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}

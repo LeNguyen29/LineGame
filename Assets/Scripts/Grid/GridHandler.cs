@@ -57,7 +57,7 @@ public class GridHandler : MonoBehaviour
             {
                 if (gridArray[x, y].isWalkable)
                 {
-                    Debug.Log($"Node [{gridArray[x, y]}] is walkable");
+                    //Debug.Log($"Node [{gridArray[x, y]}] is walkable");
                     nodeList.Add(gridArray[x, y]);
                 }
             }
