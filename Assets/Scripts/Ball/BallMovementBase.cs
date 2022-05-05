@@ -79,4 +79,9 @@ public class BallMovementBase : MonoBehaviour
 
         return pathFinder.getNodeWorldPosition(randomX, randomY);
     }
+
+    public PathFinderM getPathFinder()
+    {
+        return pathFinder;
+    }
 }

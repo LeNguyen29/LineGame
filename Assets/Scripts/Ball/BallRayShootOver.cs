@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class BallRayShootOver : MonoBehaviour
 {
-    public Color color;
-
-    private void Start()
-    {
-        color = GetComponent<SpriteRenderer>().color;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +25,7 @@ public class BallRayShootOver : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("Right ray hit " + hit.collider.name);
+                //Debug.Log("Right ray hit " + hit.collider.name);
                 objList.Add(hit.collider.gameObject);
             }
         }
@@ -49,7 +42,7 @@ public class BallRayShootOver : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("Left ray hit " + hit.collider.name);
+                //Debug.Log("Left ray hit " + hit.collider.name);
                 objList.Add(hit.collider.gameObject);
             }
         }
@@ -66,7 +59,7 @@ public class BallRayShootOver : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("Up ray hit " + hit.collider.name);
+                //Debug.Log("Up ray hit " + hit.collider.name);
                 objList.Add(hit.collider.gameObject);
             }
         }
@@ -83,7 +76,7 @@ public class BallRayShootOver : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("Down ray hit " + hit.collider.name);
+                //Debug.Log("Down ray hit " + hit.collider.name);
                 objList.Add(hit.collider.gameObject);
             }
         }

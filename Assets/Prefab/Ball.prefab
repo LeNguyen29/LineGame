@@ -251,11 +251,11 @@ GameObject:
   - component: {fileID: 5797713000061806610}
   - component: {fileID: 5797713000061806611}
   - component: {fileID: 2607381122707089149}
+  - component: {fileID: 3268400470710465}
   - component: {fileID: 331735925635459697}
   - component: {fileID: 2578501362745024406}
   - component: {fileID: 2561708125934701269}
   - component: {fileID: 4008287445359612357}
-  - component: {fileID: 1935780047}
   - component: {fileID: 4464559510200054863}
   m_Layer: 6
   m_Name: Ball
@@ -353,6 +353,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3268400470710465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797713000061806604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d6275c7182bc54d8800a8aff98fd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &331735925635459697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,23 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cee2d1b19237124da75f8e3b55e1886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1935780047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797713000061806604}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c532e6c7206854cba2c1b0f4cd1cdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightShootPos: {fileID: 1056445245}
-  leftShootPos: {fileID: 263399311}
-  upShootPos: {fileID: 633904641}
-  downShootPos: {fileID: 911999035}
-  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4464559510200054863
 MonoBehaviour:
   m_ObjectHideFlags: 0
