@@ -16,19 +16,20 @@ public class CompTurn : MonoBehaviour
     private void Start()
     {
         ballSpawner = GetComponent<BallSpawner>();
-        
     }
 
     private void Update()
     {
+        // Spawn in balls at start of game
         if (turn.gameTurn == GameTurnState.START)
         {
             spawnBalls();
             turn.setgameTurn(GameTurnState.PLAYER_TURN);
         }
+
+        // Spawn and check for balls of same color
         if (turn.gameTurn == GameTurnState.COMPUTER_TURN)
         {
-            Debug.Log("Comp turn");
             spawnBalls();
             turn.setgameTurn(GameTurnState.PLAYER_TURN);
         }

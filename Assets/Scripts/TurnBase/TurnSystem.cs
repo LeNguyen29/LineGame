@@ -36,6 +36,7 @@ public class TurnSystem : MonoBehaviour
                 playerTurn();
                 break;
             case GameTurnState.COMPUTER_TURN:
+                computerTurn();
                 break;
             case GameTurnState.LOST:
                 break;
