@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc618725e7400514faddc7a21a5df58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 4
+  width: 10
   height: 3
   cellSize: 5
   spawnPosition: {x: 0, y: 0, z: 0}
@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669753406}
   - component: {fileID: 669753405}
+  - component: {fileID: 669753407}
   m_Layer: 0
   m_Name: BallSpawner
   m_TagString: Untagged
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 5797713000061806604, guid: 7dcd814adafb2da44adda2dfaace16da, type: 3}
-  spawnAmount: 2
+  spawnAmount: 3
   objectList: []
 --- !u!4 &669753406
 Transform:
@@ -311,4 +312,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669753407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669753404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f45dc238c52164cae0b81b5579049c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSpawner: {fileID: 0}
+--- !u!1 &1261318967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261318969}
+  - component: {fileID: 1261318968}
+  m_Layer: 0
+  m_Name: TurnSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1261318968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261318967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e00d62528101943bf4f7a0d31b2836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTurn: 0
+  playerTurnFinish: 0
+  computerTurnFinish: 0
+  comp: {fileID: 0}
+--- !u!4 &1261318969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261318967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.0847297, y: -1.2929914, z: -10.507764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
