@@ -19,8 +19,8 @@ public class BallMovement : MonoBehaviour
     {
         if (moveVectorList != null && moveVectorList.Count > 0)
         {
-            Debug.Log("Move Vector List count: " + moveVectorList.Count);
-            Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
+            //Debug.Log("Move Vector List count: " + moveVectorList.Count);
+            //Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
 
             canMove = true;
             ballMoveBase.reachTarget = false;
@@ -30,22 +30,22 @@ public class BallMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed);
 
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-            Debug.Log($"Current Pos: {transform.position.ToString()} | Target Pos: {targetPosition.ToString()}");
-            Debug.Log($"Distance to target {targetPosition.ToString()}: " + distanceToTarget);
+            //Debug.Log($"Current Pos: {transform.position.ToString()} | Target Pos: {targetPosition.ToString()}");
+            //Debug.Log($"Distance to target {targetPosition.ToString()}: " + distanceToTarget);
 
             if (transform.position == targetPosition)
             {
-                Debug.Log("Reached Position");
+                //Debug.Log("Reached Position");
 
                 index++;
 
-                Debug.Log("Current move index: " + index);
+                //Debug.Log("Current move index: " + index);
 
                 if (index >= moveVectorList.Count)
                 {
                     index = 0;
                     stopMoving();
-                    Debug.Log("Reset move index: " + index);
+                    //Debug.Log("Reset move index: " + index);
                 }
             }
         }
@@ -53,18 +53,18 @@ public class BallMovement : MonoBehaviour
 
     public void stopMoving()
     {
-        Debug.Log("Stop moving");
+        //Debug.Log("Stop moving");
         ballMoveBase.reachTarget = true;
-        Debug.Log("Reach: " + ballMoveBase.reachTarget);
+        //Debug.Log("Reach: " + ballMoveBase.reachTarget);
         moveVectorList.Clear();
         canMove = false;
-        Debug.Log("Move Vector List count reset: " + moveVectorList.Count);
+        //Debug.Log("Move Vector List count reset: " + moveVectorList.Count);
     }
 
     public void setMove(bool value)
     {
         canMove = value;
-        Debug.Log(canMove);
+        //Debug.Log(canMove);
     }
 
     public void setBase(BallMovementBase ballMoveBase)
@@ -74,11 +74,11 @@ public class BallMovement : MonoBehaviour
 
     public void setMoveVectorList(List<Vector3> moveVectorList)
     {
-        Debug.Log("Setting move vector list");
+        //Debug.Log("Setting move vector list");
         this.moveVectorList = moveVectorList;
         for (int i = 0; i < moveVectorList.Count; i++)
         {
-            Debug.Log("Received Vector: " + moveVectorList[i].ToString());
+            //Debug.Log("Received Vector: " + moveVectorList[i].ToString());
         }
     }
 

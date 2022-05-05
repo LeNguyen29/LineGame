@@ -19,8 +19,12 @@ public class BallMovementBase : MonoBehaviour
 
     Vector3 startPosition;
 
+    private TurnSystem turn;
+
     private void Awake()
     {
+        turn = FindObjectOfType<TurnSystem>();
+
         ballMove = GetComponent<BallMovement>();
 
         gridHandler = FindObjectOfType<GridHandler>();
@@ -35,21 +39,26 @@ public class BallMovementBase : MonoBehaviour
 
     public void Execute()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (turn.gameTurn == GameTurnState.PLAYER_TURN)
         {
-            startPosition = transform.position;
-            List<Vector3> movePosList = pathFinder.findPathVectorList(transform.position, UtilsClass.GetMouseWorldPosition());
-            if (movePosList != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                ballMove.setMove(true);
-                ballMove.setMoveVectorList(movePosList);
+                startPosition = transform.position;
+                List<Vector3> movePosList = pathFinder.findPathVectorList(transform.position, UtilsClass.GetMouseWorldPosition());
+                if (movePosList != null)
+                {
+                    ballMove.setMove(true);
+                    ballMove.setMoveVectorList(movePosList);
+                }
             }
-        }
 
-        if (reachTarget)
-        {
-            pathFinder.getNode(startPosition).setWalkable(true);
-            pathFinder.getNode(transform.position).setWalkable(false);
+            if (reachTarget)
+            {
+                pathFinder.getNode(startPosition).setWalkable(true);
+                pathFinder.getNode(transform.position).setWalkable(false);
+
+                turn.setFinishPlayerTurn(true);
+            }
         }
     }
 

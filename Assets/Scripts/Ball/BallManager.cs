@@ -11,14 +11,14 @@ public class BallManager : MonoBehaviour
     {
         moveBase = GetComponent<BallMovementBase>();
         isSelected = false;
-        Debug.Log(isSelected);
+        //Debug.Log(isSelected);
     }
 
     private void Update()
     {
         if (isSelected)
         {
-            Debug.Log(isSelected);
+            //Debug.Log(isSelected);
             moveBase.Execute();
         }
 
