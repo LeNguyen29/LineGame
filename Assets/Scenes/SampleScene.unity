@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc618725e7400514faddc7a21a5df58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
+  width: 6
   height: 3
   cellSize: 5
   spawnPosition: {x: 0, y: 0, z: 0}
