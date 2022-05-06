@@ -32,8 +32,13 @@ public class ColorChecker : MonoBehaviour
                     if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 4)
                     {
                         tempPos = item.transform.position;
-                        if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
-                            sameColorList.Add(item);
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
                         else
                             break;
                     }
@@ -61,8 +66,13 @@ public class ColorChecker : MonoBehaviour
                     if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 4)
                     {
                         tempPos = item.transform.position;
-                        if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
-                            sameColorList.Add(item);
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
                         else
                             break;
                     }
@@ -90,8 +100,13 @@ public class ColorChecker : MonoBehaviour
                     if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 4)
                     {
                         tempPos = item.transform.position;
-                        if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
-                            sameColorList.Add(item);
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
                         else
                             break;
                     }
@@ -119,8 +134,13 @@ public class ColorChecker : MonoBehaviour
                     if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 4)
                     {
                         tempPos = item.transform.position;
-                        if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
-                            sameColorList.Add(item);
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
                         else
                             break;
                     }

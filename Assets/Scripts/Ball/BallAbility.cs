@@ -11,7 +11,9 @@ public class BallAbility : MonoBehaviour
         switch (ballType)
         {
             case BallType.UKNUCKLE:
-                spawner.spawnObjectsAtRandom(2);
+                Debug.Log("da wei");
+                SoundManager.playSound(AudioTag.DA_WEI);
+                spawner.spawnObjectAtRandom();
                 break;
             case BallType.DIO:
                 SoundManager.playSound(AudioTag.ZA_WORLD);
