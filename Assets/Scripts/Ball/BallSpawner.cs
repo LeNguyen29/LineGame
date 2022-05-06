@@ -77,7 +77,7 @@ public class BallSpawner : MonoBehaviour
                 }*/
     }
 
-    public int knuckleLimiter = 0;
+    [SerializeField] private int knuckleLimiter = 0;
     public void spawnObjectAtRandom()
     {
         if (knuckleLimiter < 2)

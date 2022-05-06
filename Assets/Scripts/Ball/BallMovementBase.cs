@@ -5,9 +5,6 @@ using CodeMonkey.Utils;
 
 public class BallMovementBase : MonoBehaviour
 {
-    public int width, height;
-    public float cellSize;
-
     //private PathFinder pathFinder;
     private PathFinderM pathFinder;
 
@@ -21,6 +18,8 @@ public class BallMovementBase : MonoBehaviour
 
     private TurnSystem turn;
 
+    private BallManager manager;
+
     public bool isGhost;
 
     private void Awake()
@@ -30,6 +29,8 @@ public class BallMovementBase : MonoBehaviour
         ballMove = GetComponent<BallMovement>();
 
         gridHandler = FindObjectOfType<GridHandler>();
+
+        manager = GetComponent<BallManager>();
 
         ballMove.setBase(this);
     }
@@ -45,6 +46,12 @@ public class BallMovementBase : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (!pathFinder.getNode(UtilsClass.GetMouseWorldPosition()).isWalkable)
+                {
+                    manager.toggleSelect(false);
+                    manager.ballAnim.changeAnimationState(BallAnimState.BALL_IDLE);
+                }
+
                 if (!isGhost)
                 {
                     startPosition = transform.position;
@@ -82,19 +89,6 @@ public class BallMovementBase : MonoBehaviour
     public void setUpPathfinder(int width, int height, float cellSize, Vector3 spawnPosition)
     {
         pathFinder = new PathFinderM(height, width, cellSize, spawnPosition);
-    }
-
-    public override string ToString()
-    {
-        return $"({height}, {width})";
-    }
-
-    public Vector3 selectRandomPoint()
-    {
-        int randomX = Random.Range(0, width);
-        int randomY = Random.Range(0, height);
-
-        return pathFinder.getNodeWorldPosition(randomX, randomY);
     }
 
     public PathFinderM getPathFinder()

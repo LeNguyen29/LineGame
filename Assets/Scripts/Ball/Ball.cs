@@ -12,8 +12,16 @@ public enum BallType
     SUS
 }
 
+public enum BallState
+{
+    QUEUE,
+    READY,
+    STANDBY
+}
+
 public class Ball : MonoBehaviour
 {
+    public BallState[] state = {BallState.QUEUE, BallState.READY, BallState.STANDBY};
     public BallType type;
     public Color color;
 

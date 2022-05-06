@@ -19,11 +19,6 @@ public class BallAnimationCon : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void changeAnimationState(BallAnimState newState)
     {
         if (newState == currentState)

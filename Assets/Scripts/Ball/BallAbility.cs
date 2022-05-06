@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BallAbility : MonoBehaviour
 {
-    private BallSpawner spawner;
+    public BallSpawner spawner;
+    public GrayOutScript grayOut;
 
     public void useAbility(BallType ballType)
     {
@@ -17,11 +18,15 @@ public class BallAbility : MonoBehaviour
                 break;
             case BallType.DIO:
                 SoundManager.playSound(AudioTag.ZA_WORLD);
+                grayOut.changeAnimationState(GrayOutAnimState.GRAYOUT);
                 break;
             case BallType.SUS:
+                SoundManager.playSound(AudioTag.SUS);
                 break;
             default:
                 break;
         }
+
+        grayOut.changeAnimationState(GrayOutAnimState.STANDBY);
     }
 }
