@@ -21,11 +21,13 @@ public class Ball : MonoBehaviour
 
     private GridHandler gridHandler;
     private ScoreTracker scoreTracker;
+    private BallAnimationCon ballAnim;
 
     private void Start()
     {
         gridHandler = FindObjectOfType<GridHandler>();
         scoreTracker = FindObjectOfType<ScoreTracker>();
+        ballAnim = GetComponent<BallAnimationCon>();
     }
 
     public void setColor(Color color)
@@ -40,6 +42,11 @@ public class Ball : MonoBehaviour
         // Play explosion animation
         gridHandler.getPathFinder().getNode(transform.position).setWalkable(true);
         scoreTracker.addScore(score);
+        ballAnim.changeAnimationState(BallAnimState.BALL_EXPLODE);
+    }
+
+    public void disableBall()
+    {
         gameObject.SetActive(false);
     }
 }

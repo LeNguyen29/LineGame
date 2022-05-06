@@ -14,6 +14,6 @@ public class ScoreTracker : MonoBehaviour
 
     public int getScore()
     {
-        return score / 2;
+        return score / 4;
     }
 }

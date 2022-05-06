@@ -18,7 +18,7 @@ public class MouseSelect : MonoBehaviour
             if (selectedBall != null)
             {
                 selectedBall.toggleSelect(false);
-
+                selectedBall.ballAnim.changeAnimationState(BallAnimState.BALL_IDLE);
                 selectedBall = null;
             }
 
@@ -30,11 +30,14 @@ public class MouseSelect : MonoBehaviour
                 {
                     Debug.Log(selectedBall.ToString());
                     selectedBall.toggleSelect(true);
+                    selectedBall.ballAnim.changeAnimationState(BallAnimState.BALL_SELECTED);
                 }
                 else
                     Debug.Log("No manager");
             }
-
         }
+
+        if (Input.GetMouseButtonDown(0))
+            selectedBall.ballAnim.changeAnimationState(BallAnimState.BALL_IDLE);
     }
 }

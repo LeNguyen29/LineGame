@@ -6,10 +6,13 @@ public class BallManager : MonoBehaviour
 {
     private bool isSelected;
     private BallMovementBase moveBase;
+    public BallAnimationCon ballAnim;
 
     private void Start()
     {
         moveBase = GetComponent<BallMovementBase>();
+        ballAnim = GetComponent<BallAnimationCon>();
+
         isSelected = false;
         //Debug.Log(isSelected);
     }
@@ -32,6 +35,7 @@ public class BallManager : MonoBehaviour
     public void toggleSelect(bool value)
     {
         isSelected = value;
+        Debug.Log("SELECTED " + value);
     }
 
     public override string ToString()
