@@ -16,7 +16,7 @@ public class GridHandler : MonoBehaviour
 
     [SerializeField] private Material lineMaterial;
 
-    public Vector3 topLeftGrid, topRightGrid, bottomLeftGrid, bottomRightGrid;
+    private Vector3 topLeftGrid, topRightGrid, bottomRightGrid;
 
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class GridHandler : MonoBehaviour
         topRightGrid = transform.position + new Vector3(width, height) * cellSize * 0.5f;
         topLeftGrid = transform.position + new Vector3(-width, height) * cellSize * 0.5f;
         bottomRightGrid = transform.position + new Vector3(width, -height) * cellSize * 0.5f;
-        bottomLeftGrid = spawnPosition;
 
         //pathFinder = new PathFinder(height, width, cellSize, spawnPosition);
         pathFinder = new PathFinderM(height, width, cellSize, spawnPosition);
@@ -36,7 +35,19 @@ public class GridHandler : MonoBehaviour
         gridArray = pathFinder.getGridArray();
         Debug.Log("Node count: " + gridArray.Length);
 
-        drawLine(spawnPosition, Vector3.zero);
+        //drawLine(bottomLeftGrid, bottomRightGrid);
+        //drawLine(bottomLeftGrid, topLeftGrid);
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                drawLine(pathFinder.getNodeWorldPosition(x, y), pathFinder.getNodeWorldPosition(x, y + 1));
+                drawLine(pathFinder.getNodeWorldPosition(x, y), pathFinder.getNodeWorldPosition(x + 1, y));
+            }
+        }
+        drawLine(topLeftGrid, topRightGrid);
+        drawLine(topRightGrid, bottomRightGrid);
     }
 
     private void FixedUpdate()
@@ -91,6 +102,6 @@ public class GridHandler : MonoBehaviour
         float distance = Vector3.Distance(startPos, endPos);
         Vector3 lineSpawnPos = startPos + direction * distance * 0.5f;
 
-        World_Mesh mesh = World_Mesh.Create(lineSpawnPos, eulerZ, 2f, distance, lineMaterial, null, 1000);
+        World_Mesh mesh = World_Mesh.Create(lineSpawnPos, eulerZ, .5f, distance, lineMaterial, null, 1000);
     }
 }
