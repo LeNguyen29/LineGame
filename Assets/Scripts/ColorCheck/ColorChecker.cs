@@ -43,7 +43,7 @@ public class ColorChecker : MonoBehaviour
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
-                    scoreTracker.setScore(sameColorList.Count);
+                    scoreTracker.addScore(sameColorList.Count);
                     popTheBalls(sameColorList);
                     continue;
                 }
@@ -72,7 +72,7 @@ public class ColorChecker : MonoBehaviour
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
-                    scoreTracker.setScore(sameColorList.Count);
+                    scoreTracker.addScore(sameColorList.Count);
                     popTheBalls(sameColorList);
                     continue;
                 }
@@ -101,7 +101,7 @@ public class ColorChecker : MonoBehaviour
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
-                    scoreTracker.setScore(sameColorList.Count);
+                    scoreTracker.addScore(sameColorList.Count);
                     popTheBalls(sameColorList);
                     continue;
                 }
@@ -130,7 +130,7 @@ public class ColorChecker : MonoBehaviour
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
-                    scoreTracker.setScore(sameColorList.Count);
+                    scoreTracker.addScore(sameColorList.Count);
                     popTheBalls(sameColorList);
                     continue;
                 }

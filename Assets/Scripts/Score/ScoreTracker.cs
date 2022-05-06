@@ -6,14 +6,14 @@ public class ScoreTracker : MonoBehaviour
 {
     private int score = 0;
 
-    public void setScore(int score)
+    public void addScore(int score)
     {
         Debug.Log("Score: " + score);
-        this.score = score;
+        this.score += score;
     }
 
     public int getScore()
     {
-        return score;
+        return score / 2;
     }
 }

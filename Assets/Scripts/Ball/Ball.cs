@@ -39,7 +39,7 @@ public class Ball : MonoBehaviour
 
         // Play explosion animation
         gridHandler.getPathFinder().getNode(transform.position).setWalkable(true);
-        scoreTracker.setScore(score);
+        scoreTracker.addScore(score);
         gameObject.SetActive(false);
     }
 }
