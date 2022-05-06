@@ -40,13 +40,13 @@ public class BallSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (gridHandler.getWalkableNodeList().Count > 0)
-                spawnObject(getRandomGridPos(), Quaternion.identity);
-            else
-                Debug.Log("No more walkable node");
-        }
+        /*        if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (gridHandler.getWalkableNodeList().Count > 0)
+                        spawnObject(getRandomGridPos(), Quaternion.identity);
+                    else
+                        Debug.Log("No more walkable node");
+                }*/
     }
 
     public void executeSpawn()

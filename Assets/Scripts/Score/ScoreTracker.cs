@@ -8,6 +8,7 @@ public class ScoreTracker : MonoBehaviour
 
     public void setScore(int score)
     {
+        Debug.Log("Score: " + score);
         this.score = score;
     }
 

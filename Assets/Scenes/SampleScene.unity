@@ -218,10 +218,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc618725e7400514faddc7a21a5df58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 6
-  height: 4
-  cellSize: 5
+  width: 7
+  height: 5
+  cellSize: 4
   spawnPosition: {x: 0, y: 0, z: 0}
+  lineMaterial: {fileID: 2100000, guid: a28665a1832eff84fa6006e352bb230f, type: 2}
+  topLeftGrid: {x: 0, y: 0, z: 0}
+  topRightGrid: {x: 0, y: 0, z: 0}
+  bottomLeftGrid: {x: 0, y: 0, z: 0}
+  bottomRightGrid: {x: 0, y: 0, z: 0}
 --- !u!4 &84194433
 Transform:
   m_ObjectHideFlags: 0
@@ -344,6 +349,7 @@ GameObject:
   - component: {fileID: 669753405}
   - component: {fileID: 669753407}
   - component: {fileID: 669753408}
+  - component: {fileID: 669753409}
   m_Layer: 0
   m_Name: BallSpawner
   m_TagString: Untagged
@@ -408,7 +414,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpawner: {fileID: 669753405}
   gridHandler: {fileID: 0}
+  scoreTracker: {fileID: 669753409}
   ballList: []
+--- !u!114 &669753409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669753404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1958a1cb158de504eb8b63be392e0a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1040696749
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +454,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1040696749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1958a1cb158de504eb8b63be392e0a2b, type: 3}
+  m_Script: {fileID: 11500000, guid: bb47dd4ded58e6f458680fd25310324c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1040696751
@@ -546,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0bc7f4d9e6cdc438e174ce6232aebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTracker: {fileID: 1040696750}
+  scoreTracker: {fileID: 669753409}
 --- !u!1 &1261318967
 GameObject:
   m_ObjectHideFlags: 0
