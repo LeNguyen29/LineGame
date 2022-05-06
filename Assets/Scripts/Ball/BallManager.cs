@@ -25,10 +25,10 @@ public class BallManager : MonoBehaviour
             moveBase.Execute();
         }
 
-        if (moveBase.reachTarget)
+        if (moveBase.getReachTarget())
         {
             isSelected = false;
-            moveBase.reachTarget = false;
+            moveBase.setReachTarget(false);
         }
     }
 
