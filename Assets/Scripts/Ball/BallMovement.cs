@@ -17,35 +17,52 @@ public class BallMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (moveVectorList != null && moveVectorList.Count > 0)
+        if (!ballMoveBase.isGhost)
         {
-            //Debug.Log("Move Vector List count: " + moveVectorList.Count);
-            //Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
-
-            canMove = true;
-            ballMoveBase.reachTarget = false;
-
-            targetPosition = moveVectorList[index];
-
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed);
-
-            float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-            //Debug.Log($"Current Pos: {transform.position.ToString()} | Target Pos: {targetPosition.ToString()}");
-            //Debug.Log($"Distance to target {targetPosition.ToString()}: " + distanceToTarget);
-
-            if (transform.position == targetPosition)
+            if (moveVectorList != null && moveVectorList.Count > 0)
             {
-                //Debug.Log("Reached Position");
+                //Debug.Log("Move Vector List count: " + moveVectorList.Count);
+                //Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
 
-                index++;
+                canMove = true;
+                ballMoveBase.setReachTarget(false);
 
-                //Debug.Log("Current move index: " + index);
+                targetPosition = moveVectorList[index];
 
-                if (index >= moveVectorList.Count)
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed);
+
+                //float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+                //Debug.Log($"Current Pos: {transform.position.ToString()} | Target Pos: {targetPosition.ToString()}");
+                //Debug.Log($"Distance to target {targetPosition.ToString()}: " + distanceToTarget);
+
+                if (transform.position == targetPosition)
                 {
-                    index = 0;
-                    stopMoving();
-                    //Debug.Log("Reset move index: " + index);
+                    //Debug.Log("Reached Position");
+
+                    index++;
+
+                    //Debug.Log("Current move index: " + index);
+
+                    if (index >= moveVectorList.Count)
+                    {
+                        index = 0;
+                        stopMoving();
+                        //Debug.Log("Reset move index: " + index);
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (transform.position != targetPosition && canMove)
+            {
+                ballMoveBase.setReachTarget(false);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed);
+
+                if (transform.position == targetPosition)
+                {
+                    ballMoveBase.setReachTarget(true);
+                    canMove = false;
                 }
             }
         }
@@ -54,7 +71,7 @@ public class BallMovement : MonoBehaviour
     public void stopMoving()
     {
         //Debug.Log("Stop moving");
-        ballMoveBase.reachTarget = true;
+        ballMoveBase.setReachTarget(true);
         //Debug.Log("Reach: " + ballMoveBase.reachTarget);
         moveVectorList.Clear();
         canMove = false;

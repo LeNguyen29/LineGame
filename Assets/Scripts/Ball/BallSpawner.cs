@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class BallSpawner : MonoBehaviour
 {
-    public new GameObject gameObject;
+    public GameObject[] objectToSpawn;
     private GridHandler gridHandler;
 
     [SerializeField] private int spawnAmount;
@@ -40,13 +39,13 @@ public class BallSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (gridHandler.getWalkableNodeList().Count > 0)
-                spawnObject(getRandomGridPos(), Quaternion.identity);
-            else
-                Debug.Log("No more walkable node");
-        }
+        /*        if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (gridHandler.getWalkableNodeList().Count > 0)
+                        spawnObject(getRandomGridPos(), Quaternion.identity);
+                    else
+                        Debug.Log("No more walkable node");
+                }*/
     }
 
     public void executeSpawn()
@@ -62,7 +61,7 @@ public class BallSpawner : MonoBehaviour
 
     public void spawnObject(Vector3 spawnPosition, Quaternion quaternion)
     {
-        GameObject temp = Instantiate(gameObject, spawnPosition, quaternion);
+        GameObject temp = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Length)], spawnPosition, quaternion);
         objectList.Add(temp);
         gridHandler.getPathFinder().getNode(temp.transform.position).setWalkable(false);
 
@@ -76,6 +75,21 @@ public class BallSpawner : MonoBehaviour
                 {
                     Debug.Log("No more walkable node");
                 }*/
+    }
+
+    [SerializeField] private int knuckleLimiter = 0;
+    public void spawnObjectAtRandom()
+    {
+        if (knuckleLimiter < 2)
+        {
+            if (gridHandler.getWalkableNodeList().Count > 0)
+            {
+                spawnObject(getRandomGridPos(), Quaternion.identity);
+                knuckleLimiter++;
+            }
+            else
+                Debug.Log("No more walkable node");
+        }
     }
 
     public Vector3 getRandomGridPos()

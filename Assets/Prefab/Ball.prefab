@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 408000094}
   m_Layer: 6
-  m_Name: Ray Pos (6)
+  m_Name: Diag Down Right Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886002571}
   m_Layer: 6
-  m_Name: Ray Pos (7)
+  m_Name: Diag Up Left Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081359694}
   m_Layer: 6
-  m_Name: Ray Pos (5)
+  m_Name: Diag Down Left Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1117388471}
   m_Layer: 6
-  m_Name: Ray Pos (4)
+  m_Name: Diag Up Right Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -251,12 +251,14 @@ GameObject:
   - component: {fileID: 5797713000061806610}
   - component: {fileID: 5797713000061806611}
   - component: {fileID: 2607381122707089149}
+  - component: {fileID: 3268400470710465}
   - component: {fileID: 331735925635459697}
   - component: {fileID: 2578501362745024406}
   - component: {fileID: 2561708125934701269}
   - component: {fileID: 4008287445359612357}
-  - component: {fileID: 1935780047}
   - component: {fileID: 4464559510200054863}
+  - component: {fileID: 1645260482482539320}
+  - component: {fileID: 1169254468537431848}
   m_Layer: 6
   m_Name: Ball
   m_TagString: Ball
@@ -273,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 5797713000061806604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children:
   - {fileID: 1056445245}
   - {fileID: 263399311}
@@ -353,6 +355,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3268400470710465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797713000061806604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d6275c7182bc54d8800a8aff98fd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 000000000100000002000000
+  type: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  score: 1
 --- !u!114 &331735925635459697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad361f7ed7517a8419656b7aadbc9247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballAnim: {fileID: 0}
 --- !u!114 &2578501362745024406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,10 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481abb41ac9370340ad96535901ead7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 0
-  height: 0
-  cellSize: 0
-  reachTarget: 0
+  isGhost: 0
 --- !u!114 &2561708125934701269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,23 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cee2d1b19237124da75f8e3b55e1886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1935780047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797713000061806604}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c532e6c7206854cba2c1b0f4cd1cdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightShootPos: {fileID: 1056445245}
-  leftShootPos: {fileID: 263399311}
-  upShootPos: {fileID: 633904641}
-  downShootPos: {fileID: 911999035}
-  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4464559510200054863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,4 +434,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe4e1e5e80de23458b573b21201dba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  PointDiagUpRight: {fileID: 1117388471}
+  PointDiagDownRight: {fileID: 408000094}
+  PointDiagUpLeft: {fileID: 886002571}
+  PointDiagDownLeft: {fileID: 1081359694}
+--- !u!114 &1645260482482539320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797713000061806604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec57fa2e0ba566344810fa22fd7528dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1169254468537431848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797713000061806604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e98af6a00864dc740900b830e453a2e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

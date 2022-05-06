@@ -5,21 +5,22 @@ using CodeMonkey.Utils;
 
 public class BallMovementBase : MonoBehaviour
 {
-    public int width, height;
-    public float cellSize;
-
     //private PathFinder pathFinder;
     private PathFinderM pathFinder;
 
     private BallMovement ballMove;
 
-    public bool reachTarget;
+    private bool reachTarget;
 
     private GridHandler gridHandler;
 
     Vector3 startPosition;
 
     private TurnSystem turn;
+
+    private BallManager manager;
+
+    public bool isGhost;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class BallMovementBase : MonoBehaviour
         ballMove = GetComponent<BallMovement>();
 
         gridHandler = FindObjectOfType<GridHandler>();
+
+        manager = GetComponent<BallManager>();
 
         ballMove.setBase(this);
     }
@@ -43,12 +46,33 @@ public class BallMovementBase : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                startPosition = transform.position;
-                List<Vector3> movePosList = pathFinder.findPathVectorList(transform.position, UtilsClass.GetMouseWorldPosition());
-                if (movePosList != null)
+                if (!pathFinder.getNode(UtilsClass.GetMouseWorldPosition()).isWalkable)
                 {
-                    ballMove.setMove(true);
-                    ballMove.setMoveVectorList(movePosList);
+                    manager.toggleSelect(false);
+                    manager.ballAnim.changeAnimationState(BallAnimState.BALL_IDLE);
+                }
+
+                if (!isGhost)
+                {
+                    startPosition = transform.position;
+                    List<Vector3> movePosList = pathFinder.findPathVectorList(transform.position, UtilsClass.GetMouseWorldPosition());
+                    if (movePosList != null)
+                    {
+                        ballMove.setMove(true);
+                        ballMove.setMoveVectorList(movePosList);
+                    }
+                }
+                else
+                {
+                    PathGridNode currentNode = pathFinder.getNode(transform.position);
+                    PathGridNode targetNode = pathFinder.getNode(UtilsClass.GetMouseWorldPosition());
+                    Vector3 movePos = pathFinder.getNodeWorldPosition(targetNode.x, targetNode.y);
+                    if (movePos != null && targetNode.isWalkable == true)
+                    {
+                        ballMove.setMove(true);
+                        ballMove.setMovePosition(movePos + new Vector3(gridHandler.cellSize, gridHandler.cellSize) * 0.5f);
+                        currentNode.isWalkable = true;
+                    }
                 }
             }
 
@@ -67,16 +91,18 @@ public class BallMovementBase : MonoBehaviour
         pathFinder = new PathFinderM(height, width, cellSize, spawnPosition);
     }
 
-    public override string ToString()
+    public PathFinderM getPathFinder()
     {
-        return $"({height}, {width})";
+        return pathFinder;
     }
 
-    public Vector3 selectRandomPoint()
+    public void setReachTarget(bool val)
     {
-        int randomX = Random.Range(0, width);
-        int randomY = Random.Range(0, height);
+        reachTarget = val;
+    }
 
-        return pathFinder.getNodeWorldPosition(randomX, randomY);
+    public bool getReachTarget()
+    {
+        return reachTarget;
     }
 }

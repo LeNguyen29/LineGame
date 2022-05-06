@@ -20,7 +20,7 @@ public class GridBase<TGridObject>
 
     private Vector3 originPosition;
 
-    private bool debugMode = true;
+    private bool debugMode = false;
 
     public GridBase(int height, int width, float cellsize, Vector3 originPosition, Func<GridBase<TGridObject>, int, int, TGridObject> createGridObject)
     {
