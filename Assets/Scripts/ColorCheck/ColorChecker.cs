@@ -5,11 +5,12 @@ using UnityEngine;
 public class ColorChecker : MonoBehaviour
 {
     public BallSpawner ballSpawner;
-    public GridHandler gridHandler;
+    public BallAbility ballAbility;
 
     public ScoreTracker scoreTracker;
 
     public List<GameObject> ballList;
+
 
     public void setBallList()
     {
@@ -140,11 +141,13 @@ public class ColorChecker : MonoBehaviour
         }
     }
 
-    public void popTheBalls(List<GameObject> sameColorList)
+    public void popTheBalls(List<GameObject> ballList)
     {
-        foreach (var ball in sameColorList)
+        foreach (var ball in ballList)
         {
             ball.GetComponent<Ball>().explode();
         }
+
+        ballAbility.useAbility(ballList[0].GetComponent<Ball>().type);
     }
 }

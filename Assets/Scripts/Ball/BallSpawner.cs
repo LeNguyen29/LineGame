@@ -78,6 +78,17 @@ public class BallSpawner : MonoBehaviour
                 }*/
     }
 
+    public void spawnObjectsAtRandom(int ammount)
+    {
+        for (int i = 0; i < ammount; i++)
+        {
+            if (gridHandler.getWalkableNodeList().Count > 0)
+                spawnObject(getRandomGridPos(), Quaternion.identity);
+            else
+                Debug.Log("No more walkable node");
+        }
+    }
+
     public Vector3 getRandomGridPos()
     {
         int x = UnityEngine.Random.Range(0, gridHandler.width);
