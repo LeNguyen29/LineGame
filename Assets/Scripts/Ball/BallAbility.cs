@@ -5,7 +5,9 @@ using UnityEngine;
 public class BallAbility : MonoBehaviour
 {
     public BallSpawner spawner;
+
     public GrayOutScript grayOut;
+    public BlackPassByScript blackPass;
 
     public void useAbility(BallType ballType)
     {
@@ -22,11 +24,13 @@ public class BallAbility : MonoBehaviour
                 break;
             case BallType.SUS:
                 SoundManager.playSound(AudioTag.SUS);
+                blackPass.changeAnimationState(BlackPassByAnimState.PASSBY);
                 break;
             default:
                 break;
         }
 
         grayOut.changeAnimationState(GrayOutAnimState.STANDBY);
+        blackPass.changeAnimationState(BlackPassByAnimState.STANDBY);
     }
 }

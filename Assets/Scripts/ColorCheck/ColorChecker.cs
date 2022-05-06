@@ -158,6 +158,142 @@ public class ColorChecker : MonoBehaviour
             }
 
             sameColorList.Clear();
+
+            temp = ball.GetComponent<BallRayShootOver>().checkDiagUpRight();
+            if (temp.Count > 1)
+            {
+                Vector3 tempPos = ball.transform.position;
+                foreach (var item in temp)
+                {
+                    if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 6)
+                    {
+                        tempPos = item.transform.position;
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
+                        else
+                            break;
+                    }
+                    else
+                        break;
+                }
+                if (sameColorList.Count >= 3)
+                {
+                    Debug.Log("We have enough left balls");
+                    //ballList.Remove(ball);
+                    scoreTracker.addScore(sameColorList.Count);
+                    popTheBalls(sameColorList);
+                    continue;
+                }
+            }
+
+            sameColorList.Clear();
+
+            temp = ball.GetComponent<BallRayShootOver>().checkDiagDownRight();
+            if (temp.Count > 1)
+            {
+                Vector3 tempPos = ball.transform.position;
+                foreach (var item in temp)
+                {
+                    if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 6)
+                    {
+                        tempPos = item.transform.position;
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
+                        else
+                            break;
+                    }
+                    else
+                        break;
+                }
+                if (sameColorList.Count >= 3)
+                {
+                    Debug.Log("We have enough left balls");
+                    //ballList.Remove(ball);
+                    scoreTracker.addScore(sameColorList.Count);
+                    popTheBalls(sameColorList);
+                    continue;
+                }
+            }
+
+            sameColorList.Clear();
+
+            temp = ball.GetComponent<BallRayShootOver>().checkDiagUpLeft();
+            if (temp.Count > 1)
+            {
+                Vector3 tempPos = ball.transform.position;
+                foreach (var item in temp)
+                {
+                    if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 6)
+                    {
+                        tempPos = item.transform.position;
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
+                        else
+                            break;
+                    }
+                    else
+                        break;
+                }
+                if (sameColorList.Count >= 3)
+                {
+                    Debug.Log("We have enough left balls");
+                    //ballList.Remove(ball);
+                    scoreTracker.addScore(sameColorList.Count);
+                    popTheBalls(sameColorList);
+                    continue;
+                }
+            }
+
+            sameColorList.Clear();
+
+            temp = ball.GetComponent<BallRayShootOver>().checkDiagDownLeft();
+            if (temp.Count > 1)
+            {
+                Vector3 tempPos = ball.transform.position;
+                foreach (var item in temp)
+                {
+                    if (Mathf.FloorToInt(Vector3.Distance(tempPos, item.transform.position)) <= 6)
+                    {
+                        tempPos = item.transform.position;
+                        if (item.GetComponent<Ball>().type == ball.GetComponent<Ball>().type)
+                        {
+                            if (item.GetComponent<SpriteRenderer>().color == ball.GetComponent<SpriteRenderer>().color)
+                                sameColorList.Add(item);
+                            else
+                                break;
+                        }
+                        else
+                            break;
+                    }
+                    else
+                        break;
+                }
+                if (sameColorList.Count >= 3)
+                {
+                    Debug.Log("We have enough left balls");
+                    //ballList.Remove(ball);
+                    scoreTracker.addScore(sameColorList.Count);
+                    popTheBalls(sameColorList);
+                    continue;
+                }
+            }
+
+            sameColorList.Clear();
         }
     }
 

@@ -2,34 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GrayOutAnimState
+public enum BlackPassByAnimState
 {
-    STANDBY,
-    GRAYOUT
+    PASSBY,
+    STANDBY
 }
 
-public class GrayOutScript : MonoBehaviour
+public class BlackPassByScript : MonoBehaviour
 {
     private Animator animator;
-    private GrayOutAnimState currentState;
+    private BlackPassByAnimState currentState;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void changeAnimationState(GrayOutAnimState newState)
+    public void changeAnimationState(BlackPassByAnimState newState)
     {
         if (newState == currentState)
             return;
 
         switch (newState)
         {
-            case GrayOutAnimState.STANDBY:
+            case BlackPassByAnimState.STANDBY:
                 animator.Play("Standby");
                 break;
-            case GrayOutAnimState.GRAYOUT:
-                animator.Play("GrayOut");
+            case BlackPassByAnimState.PASSBY:
+                animator.Play("PassBy");
                 break;
             default:
                 break;
@@ -40,7 +40,7 @@ public class GrayOutScript : MonoBehaviour
 
     public void backToStandbyState()
     {
-        currentState = GrayOutAnimState.STANDBY;
+        currentState = BlackPassByAnimState.STANDBY;
         animator.Play("Standby");
     }
 }

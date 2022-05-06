@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &263399311
 Transform:
   m_ObjectHideFlags: 0
@@ -40,12 +40,12 @@ GameObject:
   m_Component:
   - component: {fileID: 408000094}
   m_Layer: 6
-  m_Name: Ray Pos (6)
+  m_Name: Diag Down Right Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &408000094
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &633904641
 Transform:
   m_ObjectHideFlags: 0
@@ -100,12 +100,12 @@ GameObject:
   m_Component:
   - component: {fileID: 886002571}
   m_Layer: 6
-  m_Name: Ray Pos (7)
+  m_Name: Diag Up Left Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &886002571
 Transform:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &911999035
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1056445245
 Transform:
   m_ObjectHideFlags: 0
@@ -190,12 +190,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1081359694}
   m_Layer: 6
-  m_Name: Ray Pos (5)
+  m_Name: Diag Down Left Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1081359694
 Transform:
   m_ObjectHideFlags: 0
@@ -220,12 +220,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1117388471}
   m_Layer: 6
-  m_Name: Ray Pos (4)
+  m_Name: Diag Up Right Ray
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1117388471
 Transform:
   m_ObjectHideFlags: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d6275c7182bc54d8800a8aff98fd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 000000000100000002000000
   type: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   score: 1
@@ -395,10 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481abb41ac9370340ad96535901ead7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 0
-  height: 0
-  cellSize: 0
-  reachTarget: 0
+  isGhost: 0
 --- !u!114 &2561708125934701269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe4e1e5e80de23458b573b21201dba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PointDiagUpRight: {fileID: 1117388471}
+  PointDiagDownRight: {fileID: 408000094}
+  PointDiagUpLeft: {fileID: 886002571}
+  PointDiagDownLeft: {fileID: 1081359694}
 --- !u!114 &1645260482482539320
 MonoBehaviour:
   m_ObjectHideFlags: 0
