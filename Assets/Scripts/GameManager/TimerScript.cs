@@ -40,6 +40,25 @@ public class TimerScript : MonoBehaviour
         isTiming = false;
     }
 
+    public void ContinueTimer()
+    {
+        isTiming = true;
+    }
+
+    public void PauseTimer(float t)
+    {
+        StartCoroutine(pause(t));
+    }
+
+    private IEnumerator pause(float t)
+    {
+        StopTimer();
+
+        yield return new WaitForSeconds(t);
+
+        ContinueTimer();
+    }
+
     private IEnumerator runTimer()
     {
         while (isTiming)

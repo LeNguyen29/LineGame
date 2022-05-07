@@ -59,21 +59,6 @@ public class BallSpawner : MonoBehaviour
                 }*/
     }
 
-    [SerializeField] private int knuckleLimiter = 0;
-    public void spawnObjectAtRandom()
-    {
-        if (knuckleLimiter < 2)
-        {
-            if (gridHandler.getWalkableNodeList().Count > 0)
-            {
-                spawnObject(getRandomGridPos(), Quaternion.identity);
-                knuckleLimiter++;
-            }
-            else
-                Debug.Log("No more walkable node");
-        }
-    }
-
     public Vector3 getRandomGridPos()
     {
         int x = UnityEngine.Random.Range(0, gridHandler.width);

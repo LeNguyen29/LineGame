@@ -9,7 +9,7 @@ public class BallsDisplay : MonoBehaviour
 
     private List<GameObject> ballList;
 
-    private BallsDisplay INSTANCE;
+    public static BallsDisplay INSTANCE;
 
     private void Awake()
     {

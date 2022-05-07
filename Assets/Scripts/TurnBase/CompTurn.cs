@@ -27,6 +27,11 @@ public class CompTurn : MonoBehaviour
         if (turn.gameTurn == GameTurnState.START)
         {
             spawnBalls();
+            
+            BallsDisplay.INSTANCE.updateList(ballSpawner.getBallList());
+
+            //ScoreTracker.INSTANCE.setScore(0);
+
             turn.setgameTurn(GameTurnState.PLAYER_TURN);
         }
 
@@ -35,6 +40,7 @@ public class CompTurn : MonoBehaviour
         {
             Debug.Log("BEEP COMPUTER TURN");
             spawnBalls();
+            BallsDisplay.INSTANCE.updateList(ballSpawner.getBallList());
             checkBall();
             turn.setgameTurn(GameTurnState.PLAYER_TURN);
         }
