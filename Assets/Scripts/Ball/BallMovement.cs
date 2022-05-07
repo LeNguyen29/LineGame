@@ -15,7 +15,7 @@ public class BallMovement : MonoBehaviour
 
     private BallMovementBase ballMoveBase;
 
-    void FixedUpdate()
+    void Update()
     {
         if (!ballMoveBase.isGhost)
         {

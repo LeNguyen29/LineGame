@@ -46,7 +46,9 @@ public class PhoneSelect : MonoBehaviour
             if (touch.tapCount == 1)
             {
                 if (selectedBall != null)
+                {
                     selectedBall.ballAnim.changeAnimationState(BallAnimState.BALL_IDLE);
+                }
             }
         }
     }
