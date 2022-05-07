@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public SpriteRenderer sprite;
+    public GridHandler gridHandler;
 
     private void Start()
     {
@@ -16,17 +16,21 @@ public class CameraZoom : MonoBehaviour
 
         //Camera.main.orthographicSize = orthoSize;
 
+        int width, height;
+
+        gridHandler.getGridSize(out width, out height);
+
         float screenRatio = Screen.width / Screen.height;
-        float targetRatio = sprite.bounds.size.x / sprite.bounds.size.y;
+        float targetRatio = width / height;
 
         if (screenRatio >= targetRatio)
         {
-            Camera.main.orthographicSize = sprite.bounds.size.y / 2;
+            Camera.main.orthographicSize = height / 2;
         }
         else
         {
             float differenceInSize = targetRatio / screenRatio;
-            Camera.main.orthographicSize = sprite.bounds.size.y / 2 * differenceInSize;
+            Camera.main.orthographicSize = height / 2 * differenceInSize;
         }
     }
 }
