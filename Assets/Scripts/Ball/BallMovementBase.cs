@@ -44,7 +44,7 @@ public class BallMovementBase : MonoBehaviour
     {
         if (turn.gameTurn == GameTurnState.PLAYER_TURN)
         {
-            /*if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (!pathFinder.getNode(UtilsClass.GetMouseWorldPosition()).isWalkable)
                 {
@@ -74,7 +74,7 @@ public class BallMovementBase : MonoBehaviour
                         currentNode.isWalkable = true;
                     }
                 }
-            }*/
+            }
 
             if (Input.touchCount > 0)
             {
