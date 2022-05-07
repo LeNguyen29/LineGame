@@ -20,8 +20,6 @@ public class BallSpawner : MonoBehaviour
     {
         objectList = new List<GameObject>();
 
-        //executeSpawn();
-
 /*        Debug.Log("Walkable node before spawning: " + gridHandler.getWalkableNodeList().Count);
 
         for (int i = 0; i < spawnAmount; i++)
@@ -30,22 +28,6 @@ public class BallSpawner : MonoBehaviour
         }
 
         Debug.Log("Walkable node after spawning: " + gridHandler.getWalkableNodeList().Count);*/
-
-        /*        foreach (var obj in objectList)
-                {
-                    gridHandler.getPathFinder().getNode(obj.transform.position).setWalkable(false);
-                }*/
-    }
-
-    private void Update()
-    {
-        /*        if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (gridHandler.getWalkableNodeList().Count > 0)
-                        spawnObject(getRandomGridPos(), Quaternion.identity);
-                    else
-                        Debug.Log("No more walkable node");
-                }*/
     }
 
     public void executeSpawn()
@@ -75,21 +57,6 @@ public class BallSpawner : MonoBehaviour
                 {
                     Debug.Log("No more walkable node");
                 }*/
-    }
-
-    [SerializeField] private int knuckleLimiter = 0;
-    public void spawnObjectAtRandom()
-    {
-        if (knuckleLimiter < 2)
-        {
-            if (gridHandler.getWalkableNodeList().Count > 0)
-            {
-                spawnObject(getRandomGridPos(), Quaternion.identity);
-                knuckleLimiter++;
-            }
-            else
-                Debug.Log("No more walkable node");
-        }
     }
 
     public Vector3 getRandomGridPos()

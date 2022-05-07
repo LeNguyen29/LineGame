@@ -2,34 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GrayOutAnimState
+public enum BlueExpandAnimState
 {
     STANDBY,
-    GRAYOUT
+    BLUEOUT
 }
 
-public class GrayOutScript : MonoBehaviour
+public class BlueCircleExpand : MonoBehaviour
 {
     private Animator animator;
-    private GrayOutAnimState currentState;
+    private BlueExpandAnimState currentState;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void changeAnimationState(GrayOutAnimState newState)
+    public void changeAnimationState(BlueExpandAnimState newState)
     {
         if (newState == currentState)
             return;
 
         switch (newState)
         {
-            case GrayOutAnimState.STANDBY:
+            case BlueExpandAnimState.STANDBY:
                 animator.Play("Standby");
                 break;
-            case GrayOutAnimState.GRAYOUT:
-                animator.Play("GrayOut");
+            case BlueExpandAnimState.BLUEOUT:
+                animator.Play("CircleExpand");
                 break;
             default:
                 break;
@@ -40,8 +40,7 @@ public class GrayOutScript : MonoBehaviour
 
     public void backToStandbyState()
     {
-        currentState = GrayOutAnimState.STANDBY;
+        currentState = BlueExpandAnimState.STANDBY;
         animator.Play("Standby");
-        TimerScript.INSTANCE.ContinueTimer();
     }
 }

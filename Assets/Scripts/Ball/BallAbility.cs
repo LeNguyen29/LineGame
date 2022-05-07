@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BallAbility : MonoBehaviour
 {
-    public BallSpawner spawner;
-
     public GrayOutScript grayOut;
     public BlackPassByScript blackPass;
+    public BlueCircleExpand blueOut;
 
     public void useAbility(BallType ballType)
     {
@@ -16,7 +15,8 @@ public class BallAbility : MonoBehaviour
             case BallType.UKNUCKLE:
                 Debug.Log("da wei");
                 SoundManager.playSound(AudioTag.DA_WEI);
-                spawner.spawnObjectAtRandom();
+                SoundManager.playSound(AudioTag.SPIT);
+                blueOut.changeAnimationState(BlueExpandAnimState.BLUEOUT);
                 break;
             case BallType.DIO:
                 SoundManager.playSound(AudioTag.ZA_WORLD);
@@ -27,6 +27,7 @@ public class BallAbility : MonoBehaviour
                 blackPass.changeAnimationState(BlackPassByAnimState.PASSBY);
                 break;
             default:
+                SoundManager.playSound(AudioTag.DING);
                 break;
         }
 

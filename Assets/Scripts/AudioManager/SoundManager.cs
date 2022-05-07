@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public enum AudioTag
 {
     ZA_WORLD,
     DA_WEI, 
-    SUS
+    SUS,
+    SPIT,
+    DING
 }
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip ZA_WORLD, DA_WEI, SUS;
+    public static AudioClip ZA_WORLD, DA_WEI, SUS, SPIT, DING;
 
     static AudioSource audioSource;
 
@@ -20,6 +23,8 @@ public class SoundManager : MonoBehaviour
         ZA_WORLD = Resources.Load<AudioClip>("Audio/ZaWorld");
         DA_WEI = Resources.Load<AudioClip>("Audio/DaWei");
         SUS = Resources.Load<AudioClip>("Audio/Amongus");
+        SPIT = Resources.Load<AudioClip>("Audio/Spit");
+        DING = Resources.Load<AudioClip>("Audio/Ding");
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -37,6 +42,12 @@ public class SoundManager : MonoBehaviour
                 break;
             case AudioTag.SUS:
                 audioSource.PlayOneShot(SUS);
+                break;
+            case AudioTag.SPIT:
+                audioSource.PlayOneShot(SPIT);
+                break;
+            case AudioTag.DING:
+                audioSource.PlayOneShot(DING);
                 break;
             default:
                 break;

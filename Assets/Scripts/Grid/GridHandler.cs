@@ -55,6 +55,12 @@ public class GridHandler : MonoBehaviour
         //getWalkableNodeList();
     }
 
+    public void getGridSize(out int widthSize, out int heightSize)
+    {
+        widthSize = width * (int) cellSize;
+        heightSize = height * (int)cellSize;
+    }
+
     public Vector3 getSpawnPos()
     {
         return spawnPosition;

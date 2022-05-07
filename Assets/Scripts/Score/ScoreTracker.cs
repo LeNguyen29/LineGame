@@ -14,6 +14,7 @@ public class ScoreTracker : MonoBehaviour
 
     public int getScore()
     {
+        PlayerPrefs.SetInt("Score", score / 4);
         return score / 4;
     }
 }

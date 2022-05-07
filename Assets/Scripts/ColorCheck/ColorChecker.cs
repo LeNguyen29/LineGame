@@ -11,6 +11,7 @@ public class ColorChecker : MonoBehaviour
 
     public List<GameObject> ballList;
 
+    public int ammountToPop;
 
     public void setBallList()
     {
@@ -45,7 +46,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -79,7 +80,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -113,7 +114,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -147,7 +148,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -181,7 +182,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -215,7 +216,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -249,7 +250,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
@@ -283,7 +284,7 @@ public class ColorChecker : MonoBehaviour
                     else
                         break;
                 }
-                if (sameColorList.Count >= 3)
+                if (sameColorList.Count >= ammountToPop)
                 {
                     Debug.Log("We have enough left balls");
                     //ballList.Remove(ball);
