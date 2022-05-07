@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameEnder : MonoBehaviour
 {
     private GridHandler gridHandler;
+    private LevelManager levelManager;
 
     private void Start()
     {
@@ -22,5 +23,6 @@ public class GameEnder : MonoBehaviour
     public void EndGame()
     {
         Debug.Log("Game Over");
+        LevelManager.INSTANCE.ToGameOver();
     }
 }

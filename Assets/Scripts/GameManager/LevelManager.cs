@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager INSTANCE;
+
+    private void Awake()
+    {
+        INSTANCE = this;
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("MainGameScene");
@@ -14,6 +21,12 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("QUIT GAME");
         Application.Quit();
+    }
+
+    public void ToGameOver()
+    {
+        Debug.Log("TO GAMEOVER");
+        SceneManager.LoadScene("GameOverScene");
     }
 
     public void ToMainMenu()
