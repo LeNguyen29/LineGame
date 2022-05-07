@@ -21,8 +21,8 @@ public class BallMovement : MonoBehaviour
         {
             if (moveVectorList != null && moveVectorList.Count > 0)
             {
-                //Debug.Log("Move Vector List count: " + moveVectorList.Count);
-                //Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
+                Debug.Log("Move Vector List count: " + moveVectorList.Count);
+                Debug.Log("Moving to [" + index + "]: " + moveVectorList[index].ToString());
 
                 canMove = true;
                 ballMoveBase.setReachTarget(false);
