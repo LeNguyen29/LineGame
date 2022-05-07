@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CompTurn : MonoBehaviour
 {
-    public BallSpawner ballSpawner;
-    public ColorChecker colorChecker;
+    private BallSpawner ballSpawner;
+    private ColorChecker colorChecker;
     private TurnSystem turn;
+
+    public BallsDisplay ballDisplay;
 
     private void Awake()
     {
