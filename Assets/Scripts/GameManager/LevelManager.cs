@@ -16,15 +16,20 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
     public void ToCredits()
     {
         Debug.Log("TO CREDITS");
-        //SceneManager.LoadScene("CreditScene");
+        SceneManager.LoadScene("CreditScene");
     }
 
     public void ToInstruction()
     {
         Debug.Log("HOW 2 PLAY");
-        //SceneManager.LoadScene("InstructionScene");
+        SceneManager.LoadScene("InstructionScene");
     }
 }
