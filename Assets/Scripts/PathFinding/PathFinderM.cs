@@ -39,7 +39,6 @@ public class PathFinderM
         {
             foreach (var node in path)
             {
-                //pathVectorList.Add(new Vector3(node.x, node.y) * grid.getCellSize() + Vector3.one * grid.getCellSize() * 0.5f);
                 pathVectorList.Add(originPosition + new Vector3(grid.getCellSize(), grid.getCellSize()) * 0.5f + new Vector3(node.x, node.y) * grid.getCellSize());
             }
             return pathVectorList;
